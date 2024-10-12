@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noel Esenwa - Senior Controls Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8b0000;
+            --accent-color: #F08080;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #333333;
+                --text-color: #ffffff;
+            }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .left-panel {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.12), rgba(139, 0, 0, 0.06));
+            padding: 20px;
+            color: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0 0L100 100M100 0L0 100" stroke="rgba(139,0,0,0.1)" stroke-width="0.5"/></svg>');
+            animation: patternMove 10s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        .right-panel {
+            background-color: var(--bg-color);
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        h2:hover::after {
+            width: 100%;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background-color: rgba(139, 0, 0, 0.2);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .experience-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .experience-date {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        li::before {
+            content: "▹";
+            color: var(--primary-color);
+            position: absolute;
+            left: -20px;
+        }
+
+        .education {
+            margin-bottom: 20px;
+        }
+
+        .senior-project {
+            background-color: rgba(139, 0, 0, 0.25);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .senior-project:hover {
+            background-color: rgba(139, 0, 0, 0.35);
+            transform: translateX(5px);
+        }
+
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .print-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="contact-info">
+                <h1>Noel Esenwa</h1>
+                <p>noelesenwa@gmail.com | 678-899-3885 | Atlanta, GA</p>
+            </div>
+            <h2>Skills & Expertise</h2>
+            <div class="skills-list">
+                <span class="skill-tag">AutoCAD Electrical</span>
+                <span class="skill-tag">PLC Programming</span>
+                <span class="skill-tag">HMI Development</span>
+                <span class="skill-tag">Allen Bradley Controllers</span>
+                <span class="skill-tag">Motion Control</span>
+                <span class="skill-tag">Electrical Schematics</span>
+                <span class="skill-tag">Panel Design</span>
+                <span class="skill-tag">Vision Systems</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Customer Integration</span>
+                <span class="skill-tag">Technical Documentation</span>
+                <span class="skill-tag">UL Standards</span>
+                <span class="skill-tag">NEC Compliance</span>
+                <span class="skill-tag">Ethernet/IP Networks</span>
+                <span class="skill-tag">Cyclic Rotary Motion</span>
+                <span class="skill-tag">Troubleshooting</span>
+                <span class="skill-tag">NFPA 70E</span>
+                <span class="skill-tag">IEC 61131-3</span>
+                <span class="skill-tag">SCADA Systems</span>
+                <span class="skill-tag">Industrial Robotics</span>
+                <span class="skill-tag">Safety PLC</span>
+                <span class="skill-tag">Machine Safety</span>
+                <span class="skill-tag">Servo Drives</span>
+                <span class="skill-tag">VFD Programming</span>
+                <span class="skill-tag">OPC UA</span>
+                <span class="skill-tag">ISA-88/95 Standards</span>
+                <span class="skill-tag">IIoT Implementation</span>
+                <span class="skill-tag">Data Acquisition Systems</span>
+                <span class="skill-tag">Process Control</span>
+                <span class="skill-tag">Industrial Networks</span>
+                <span class="skill-tag">DeviceNet</span>
+                <span class="skill-tag">Profibus</span>
+                <span class="skill-tag">Modbus</span>
+                <span class="skill-tag">ControlNet</span>
+                <span class="skill-tag">EtherCAT</span>
+                <span class="skill-tag">FactoryTalk View</span>
+                <span class="skill-tag">Wonderware InTouch</span>
+                <span class="skill-tag">Siemens TIA Portal</span>
+                <span class="skill-tag">GE Cimplicity</span>
+                <span class="skill-tag">Ignition SCADA</span>
+                <span class="skill-tag">Ladder Logic</span>
+                <span class="skill-tag">Function Block Diagram</span>
+                <span class="skill-tag">Structured Text</span>
+                <span class="skill-tag">Sequential Function Charts</span>
+                <span class="skill-tag">C# for PLC Integration</span>
+                <span class="skill-tag">Python for Data Analysis</span>
+                <span class="skill-tag">SQL for Data Management</span>
+                <span class="skill-tag">MQTT Protocol</span>
+                <span class="skill-tag">OPC Classic</span>
+                <span class="skill-tag">Industrial Cybersecurity</span>
+            </div>
+            <h2>Certifications</h2>
+            <ul>
+                <li>Certified Control Systems Technician (CCST) - Level III</li>
+                <li>TÜV Rheinland Certified Functional Safety Engineer</li>
+                <li>Certified Information Systems Security Professional (CISSP)</li>
+            </ul>
+        </div>
+        <div class="right-panel">
+            <h2>Professional Summary</h2>
+            <p>Highly skilled Senior Controls Engineer with over 15 years of experience in industrial automation and control systems. Expertise in designing and implementing complex PLC, HMI, and motion control solutions for packaging industry leaders. Proven track record of developing innovative, customer-focused automation solutions that enhance efficiency and productivity. Adept at managing projects from conception to completion, ensuring compliance with UL standards and industry regulations.</p>
+            
+            <h2>Education</h2>
+            <div class="education">
+                <h3>Bachelor of Science in Electrical Engineering</h3>
+                <p>Case Western Reserve University, Cleveland, OH | Graduated: May 2010</p>
+                <div class="senior-project">
+                    <h4>Senior Project: Advanced Packaging Line Control System</h4>
+                    <p><strong>Achievement:</strong> Designed and implemented a fully automated control system for a high-speed packaging line, integrating PLC, HMI, and vision systems.</p>
+                    <p><strong>Impact:</strong> Project was showcased at the university's engineering expo and received recognition from industry partners for its innovative approach to packaging automation.</p>
+                </div>
+            </div>
+
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>Senior Controls Engineer</h3>
+                <p>Rockwell Automation, Milwaukee, WI (Remote) | 01/2015 - Present</p>
+                <ul>
+                    <li>Led the development of a new standardized control system architecture for packaging lines, resulting in a 30% reduction in commissioning time and a 25% increase in overall equipment effectiveness (OEE) for clients.</li>
+                    <li>Designed and implemented advanced motion control solutions for high-speed packaging equipment, improving production rates by 20% and reducing product waste by 15%.</li>
+                    <li>Developed custom PLC and HMI programs for Allen-Bradley ControlLogix and CompactLogix platforms, integrating complex vision systems for product orientation and quality control.</li>
+                    <li>Orchestrated the successful migration of legacy control systems to modern Ethernet/IP networks for five major clients, enhancing system performance and enabling remote diagnostics capabilities.</li>
+                    <li>Implemented machine safety systems compliant with ISO 13849 and IEC 62061, reducing workplace incidents by 40% across client installations.</li>
+                    <li>Conducted comprehensive factory acceptance tests (FAT) and site acceptance tests (SAT) for new equipment, ensuring 100% compliance with customer specifications and regulatory requirements.</li>
+                    <li>Mentored junior engineers in best practices for control system design and programming, improving team productivity by 25% over two years.</li>
+                    <li>Authored detailed technical documentation, including user manuals and troubleshooting guides, reducing customer support calls by 35% and improving client satisfaction scores by 20%.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Controls Engineer</h3>
+                <p>Siemens, Atlanta, GA (Remote) | 05/2013 - 01/2015</p>
+                <ul>
+                    <li>Designed electrical schematics and panel layouts for packaging machinery using AutoCAD Electrical, reducing design errors by 30% and streamlining the manufacturing process.</li>
+                    <li>Programmed and commissioned Siemens S7-1500 PLCs and SIMATIC HMI systems for various packaging applications, improving system reliability by 25%.</li>
+                    <li>Integrated Siemens SIMOTION motion control systems with existing packaging lines, resulting in a 15% increase in production speed and improved precision in product handling.</li>
+                    <li>Developed and implemented energy monitoring solutions using Siemens WinCC SCADA system, helping clients achieve an average of 18% reduction in energy consumption.</li>
+                    <li>Collaborated with cross-functional teams to troubleshoot and resolve complex control system issues, reducing machine downtime by 40% for key accounts.</li>
+                    <li>Conducted on-site training sessions for client personnel, improving their ability to operate and maintain new control systems, resulting in a 50% decrease in post-installation support requests.</li>
+                    <li>Implemented TIA Portal-based control solutions for packaging lines, integrating safety, motion, and standard control in a unified platform, reducing programming time by 20%.</li>
+                    <li>Pioneered the use of Siemens MindSphere IoT platform for predictive maintenance in packaging equipment, leading to a 30% reduction in unplanned downtime for early adopters.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Junior Controls Engineer</h3>
+                <p>ABB, Zurich, Switzerland (Remote) | 06/2009 - 05/2013</p>
+                <ul>
+                    <li>Assisted in the design and implementation of ABB AC500 PLC-based control systems for packaging applications, contributing to a 10% improvement in system performance.</li>
+                    <li>Programmed ABB robots for pick-and-place operations in packaging lines, increasing throughput by 25% and reducing product damage by 15
