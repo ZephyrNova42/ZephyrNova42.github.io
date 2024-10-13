@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noel Esenwa - Senior Mechanical Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8b0000;
+            --light-coral: #F08080;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #f0f0f0;
+            }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .left-panel {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.12), rgba(139, 0, 0, 0.06));
+            padding: 20px;
+            color: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0 0L100 100" stroke="rgba(139,0,0,0.1)" stroke-width="0.5"/></svg>');
+            animation: patternMove 10s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        .right-panel {
+            background-color: var(--bg-color);
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--light-coral);
+            transition: width 0.3s ease-in-out;
+        }
+
+        h2:hover::after {
+            width: 100%;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background-color: rgba(139, 0, 0, 0.2);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: rgba(139, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .experience-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .experience-date {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        li::before {
+            content: '▹';
+            color: var(--primary-color);
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .senior-project {
+            background-color: rgba(139, 0, 0, 0.25);
+            border-left: 4px solid var(--light-coral);
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .senior-project:hover {
+            background-color: rgba(139, 0, 0, 0.35);
+            transform: translateX(5px);
+        }
+
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .print-button:hover {
+            background-color: #6b0000;
+        }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Noel Esenwa</h1>
+            <div class="contact-info">
+                <p>Email: noelesenwa@gmail.com</p>
+                <p>Phone: 678-899-3885</p>
+                <p>Location: Atlanta, GA</p>
+            </div>
+            <h2>Skills & Expertise</h2>
+            <div class="skills-list">
+                <span class="skill-tag">AutoCAD</span>
+                <span class="skill-tag">Revit MEP</span>
+                <span class="skill-tag">HVAC Design</span>
+                <span class="skill-tag">Mechanical Systems</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">3D Modeling</span>
+                <span class="skill-tag">Energy Analysis</span>
+                <span class="skill-tag">Building Codes</span>
+                <span class="skill-tag">Sustainability</span>
+                <span class="skill-tag">CFD Analysis</span>
+                <span class="skill-tag">Pipe Stress Analysis</span>
+                <span class="skill-tag">Thermal Systems</span>
+                <span class="skill-tag">FEA</span>
+                <span class="skill-tag">SolidWorks</span>
+                <span class="skill-tag">ANSYS</span>
+                <span class="skill-tag">MATLAB</span>
+                <span class="skill-tag">LabVIEW</span>
+                <span class="skill-tag">Pump Selection</span>
+                <span class="skill-tag">Heat Transfer</span>
+                <span class="skill-tag">Fluid Mechanics</span>
+                <span class="skill-tag">Thermodynamics</span>
+                <span class="skill-tag">CAE</span>
+                <span class="skill-tag">PLM Systems</span>
+                <span class="skill-tag">GD&T</span>
+                <span class="skill-tag">Six Sigma</span>
+                <span class="skill-tag">Lean Manufacturing</span>
+                <span class="skill-tag">ISO 9001</span>
+                <span class="skill-tag">ASME Standards</span>
+                <span class="skill-tag">ASHRAE Guidelines</span>
+                <span class="skill-tag">PTC Creo</span>
+                <span class="skill-tag">AutoPIPE</span>
+                <span class="skill-tag">Computational Fluid Dynamics</span>
+                <span class="skill-tag">Finite Element Analysis</span>
+                <span class="skill-tag">Thermal Management</span>
+                <span class="skill-tag">Mechanical Seals</span>
+                <span class="skill-tag">Pump Curves</span>
+                <span class="skill-tag">P&ID Development</span>
+                <span class="skill-tag">Root Cause Analysis</span>
+                <span class="skill-tag">Failure Mode and Effects Analysis (FMEA)</span>
+                <span class="skill-tag">Design for Manufacturing (DFM)</span>
+                <span class="skill-tag">Design for Assembly (DFA)</span>
+                <span class="skill-tag">Tolerance Analysis</span>
+                <span class="skill-tag">Value Engineering</span>
+                <span class="skill-tag">Design Reviews</span>
+                <span class="skill-tag">Technical Writing</span>
+                <span class="skill-tag">MS Project</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">VBA</span>
+                <span class="skill-tag">C++</span>
+            </div>
+            <h2>Certifications</h2>
+            <ul>
+                <li>Professional Engineer (PE) License</li>
+                <li>LEED Accredited Professional</li>
+                <li>Six Sigma Green Belt</li>
+                <li>ASME B31.3 Pressure Piping</li>
+            </ul>
+        </div>
+        <div class="right-panel">
+            <h2>Professional Summary</h2>
+            <p>Highly skilled Senior Mechanical Engineer with over 15 years of experience in designing, specifying, and managing mechanical systems for diverse projects including commercial, residential, industrial, healthcare, and educational facilities. Proven track record in project management, cross-functional collaboration, and mentoring junior engineers. Expertise in AutoCAD, Revit MEP, and sustainable design principles. Committed to delivering innovative and efficient solutions while adhering to industry standards and regulations.</p>
+            <h2>Education</h2>
+            <p><strong>Bachelor of Science in Mechanical Engineering</strong><br>
+            Case Western Reserve University, Cleveland, OH<br>
+            Graduated: May 2010</p>
+            <div class="senior-project">
+                <h3>Senior Project: Advanced HVAC System Optimization</h3>
+                <p><strong>Achievement:</strong> Developed an innovative HVAC control algorithm that reduced energy consumption by 22% in a simulated office environment.</p>
+                <p><strong>Impact:</strong> Project was recognized by the ASHRAE Student Design Competition and implemented in a pilot program at the university's engineering building.</p>
+            </div>
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <div class="experience-title">Senior Mechanical Engineer</div>
+                <div class="experience-company">Johnson Controls, Atlanta, GA (Remote)</div>
+                <div class="experience-date">01/2015 - Present</div>
+                <ul>
+                    <li>Lead a team of 6 engineers in designing and implementing mechanical systems for large-scale commercial and industrial projects, resulting in a 30% increase in project completion efficiency.</li>
+                    <li>Spearheaded the integration of Building Information Modeling (BIM) practices, reducing design conflicts by 40% and improving collaboration with cross-functional teams.</li>
+                    <li>Developed and implemented a standardized quality control process, reducing rework by 25% and improving client satisfaction scores by 15%.</li>
+                    <li>Conducted energy modeling and analysis for LEED-certified projects, achieving an average of 35% energy savings compared to baseline buildings.</li>
+                    <li>Managed the design and specification of mechanical systems for a $50M healthcare facility, ensuring compliance with ASHRAE 170 and achieving a 20% reduction in operational costs.</li>
+                    <li>Implemented advanced CFD analysis techniques, optimizing airflow in critical environments and reducing HVAC-related issues by 30%.</li>
+                    <li>Mentored junior engineers, developing a structured training program that improved team performance metrics by 25% within the first year.</li>
+                    <li>Collaborated with architects and structural engineers to integrate sustainable design features, resulting in three projects achieving LEED Gold certification.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-title">Mechanical Systems Engineer</div>
+                <div class="experience-company">Siemens Building Technologies, Chicago, IL (Remote)</div>
+                <div class="experience-date">05/2013 - 01/2015</div>
+                <ul>
+                    <li>Designed and specified HVAC, plumbing, and fire protection systems for commercial and industrial facilities, consistently meeting or exceeding project deadlines.</li>
+                    <li>Utilized Revit MEP to create detailed 3D models and construction documents, improving coordination efficiency by 35%.</li>
+                    <li>Conducted load calculations and equipment selections for a variety of mechanical systems, optimizing performance and energy efficiency.</li>
+                    <li>Performed energy audits for existing buildings, identifying and implementing solutions that resulted in an average of 25% energy savings.</li>
+                    <li>Collaborated with controls engineers to integrate building automation systems, improving overall system efficiency by 20%.</li>
+                    <li>Developed and maintained technical specifications and design standards, ensuring consistency across projects and reducing errors by 15%.</li>
+                    <li>Participated in client meetings and presentations, effectively communicating technical concepts to non-technical stakeholders.</li>
+                    <li>Conducted field observations during construction, ensuring proper installation and commissioning of mechanical systems.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-title">Mechanical Design Engineer</div>
+                <div class="experience-company">Trane Technologies, Minneapolis, MN (Remote)</div>
+                <div class="experience-date">06/2009 - 05/2013</div>
+                <ul>
+                    <li>Assisted in the design and development of commercial HVAC equipment, contributing to a product line that achieved a 15% increase in energy efficiency.</li>
+                    <li>Utilized SolidWorks and AutoCAD to create detailed 3D models and 2D drawings, improving documentation accuracy by 25%.</li>
+                    <li>Conducted thermal and CFD analyses using ANSYS, optimizing component designs and reducing material costs by 10%.</li>
+                    <li>Collaborated with manufacturing teams to implement Design for Manufacturing (DFM) principles, reducing production time by 20%.</li>
+                    <li>Participated in product testing and validation, developing test protocols that reduced the product development cycle by 15%
